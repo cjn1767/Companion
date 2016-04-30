@@ -35,7 +35,6 @@ public interface Data extends RestClientHeaders, RestClientErrorHandling, RestCl
     String getHeader(String name);
 
       @Get("/event")
-      @RequiresHeader("x-access-token")
       LoadInitialData loadInitialData();
 
 }

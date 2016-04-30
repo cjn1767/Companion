@@ -2,6 +2,7 @@ package student.application.lhu_companion_2;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +12,43 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.rest.spring.annotations.RestService;
+import org.springframework.web.client.RestClientException;
 
 import student.application.lhu_companion_2.responses.LoadInitialData;
-
+import student.application.lhu_companion_2.rest.Data;
 
 
 @EFragment
 public class EventsActivity_ extends Fragment {
 
     LoadInitialData loadInitialData;
+
+    @RestService
+    Data restService;
+
+    @Background
+    void loadInitialData(){
+        try{
+            loadInitialData = restService.loadInitialData();
+        }catch (RestClientException e){
+            Log.d("DashboardMain Error", e.getMessage());
+        }
+        if (loadInitialData != null){
+            loadInitialData.setEventName(loadInitialData.getEventName());
+            loadInitialData.setHost(loadInitialData.getHost());
+            loadInitialData.setLocation(loadInitialData.getLocation());
+            loadInitialData.setTime(loadInitialData.getTime());
+            loadInitialData.setWhen(loadInitialData.getWhen());
+            loadInitialData.setDescription(loadInitialData.getDescription());
+
+        }
+
+    }
+
 
     public EventsActivity_() {
     }

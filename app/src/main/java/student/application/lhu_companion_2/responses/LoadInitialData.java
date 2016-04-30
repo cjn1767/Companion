@@ -5,7 +5,7 @@ import student.application.lhu_companion_2.models.Events;
 
 public class LoadInitialData {
 
-    Events[] eventName, host, location, time, description;
+    Events[] eventName, host, location, when, time, description;
 
     public Events[] getEventName() {
         return eventName;
@@ -33,6 +33,14 @@ public class LoadInitialData {
 
     public Events[] getTime() {
         return time;
+    }
+
+    public void setWhen(Events[] events) {
+        this.when = when;
+    }
+
+    public Events[] getWhen() {
+        return when;
     }
 
     public void setTime(Events[] events) {
