@@ -22,8 +22,8 @@ import student.application.lhu_companion_2.responses.LoadInitialData;
 import student.application.lhu_companion_2.rest.Data;
 
 
-@EFragment
-public class EventsActivity_ extends Fragment {
+@EFragment(R.layout.activity_events)
+public class EventsActivity extends Fragment {
 
     LoadInitialData loadInitialData;
 
@@ -50,12 +50,14 @@ public class EventsActivity_ extends Fragment {
     }
 
 
-    public EventsActivity_() {
+    public EventsActivity() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        loadInitialData();
 
         View rootView = inflater.inflate(R.layout.activity_events, container, false);
 
