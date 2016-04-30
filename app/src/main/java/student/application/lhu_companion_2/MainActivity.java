@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.main_view, fragment);
             ft.commit();
         } else if (id == R.id.nav_events) {
-            fragment = new EventsActivity();
+            fragment = new EventsActivity_();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.main_view, fragment);
             ft.commit();

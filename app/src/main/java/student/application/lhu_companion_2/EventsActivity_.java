@@ -11,17 +11,18 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import org.androidannotations.annotations.EFragment;
 
 import student.application.lhu_companion_2.responses.LoadInitialData;
 
 
 
-
-public class EventsActivity extends Fragment {
+@EFragment
+public class EventsActivity_ extends Fragment {
 
     LoadInitialData loadInitialData;
 
-    public EventsActivity() {
+    public EventsActivity_() {
     }
 
     @Override
