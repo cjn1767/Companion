@@ -2,11 +2,7 @@ package student.application.lhu_companion_2.rest;
 
 import android.util.Log;
 
-import org.androidannotations.rest.spring.annotations.Body;
 import org.androidannotations.rest.spring.annotations.Get;
-import org.androidannotations.rest.spring.annotations.Path;
-import org.androidannotations.rest.spring.annotations.Post;
-import org.androidannotations.rest.spring.annotations.RequiresHeader;
 import org.androidannotations.rest.spring.annotations.Rest;
 import org.androidannotations.rest.spring.api.RestClientErrorHandling;
 import org.androidannotations.rest.spring.api.RestClientHeaders;
@@ -19,15 +15,13 @@ import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
 
-import org.springframework.util.LinkedMultiValueMap;
-
 import java.io.IOException;
 
-import student.application.lhu_companion_2.responses.LoadInitialData;
+import student.application.lhu_companion_2.models.Events;
 
 
 
-@Rest(rootUrl = "ec2-54-186-111-1.us-west-2.compute.amazonaws.com:4000", converters = { FormHttpMessageConverter.class, GsonHttpMessageConverter.class, ByteArrayHttpMessageConverter.class}, interceptors = {HTTPLoggingInterceptor.class})
+@Rest(rootUrl = "http://ec2-54-186-111-1.us-west-2.compute.amazonaws.com:4000", converters = { FormHttpMessageConverter.class, GsonHttpMessageConverter.class, ByteArrayHttpMessageConverter.class}, interceptors = {HTTPLoggingInterceptor.class})
 public interface Data extends RestClientHeaders, RestClientErrorHandling, RestClientRootUrl {
         void setRootUrl(String rootUrl);
 
@@ -35,7 +29,8 @@ public interface Data extends RestClientHeaders, RestClientErrorHandling, RestCl
     String getHeader(String name);
 
       @Get("/event")
-      LoadInitialData loadInitialData();
+      Events[] loadInitialData();
+
 
 }
 

@@ -1,12 +1,9 @@
 package student.application.lhu_companion_2.models;
 
-import java.util.Date;
-
-
 public class Events {
 
-    String eventName, host, location, time, description;
-    Date when;
+    String eventName, host, location, time, description, when;
+
 
 
     public String getEventName() {
@@ -49,11 +46,11 @@ public class Events {
         this.description = description;
     }
 
-    public Date getWhen() {
+    public String getWhen() {
         return when;
     }
 
-    public void set(Date when) {
+    public void set(String when) {
         this.when = when;
     }
 
